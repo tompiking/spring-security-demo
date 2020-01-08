@@ -1,16 +1,30 @@
  package com.icinfo.starter.model;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class User implements UserDetails {
+import com.icinfo.starter.annotation.CustomPattern;
 
+public class User implements UserDetails {
+    @CustomPattern(regexp = CustomPattern.PHONE, message = "手机格式错误")
     private String username;
     private String password;
     private List<GrantedAuthority> authorities;
+
+    @CustomPattern(regexp = CustomPattern.AMOUNT, message = "金额错误")
+    private BigDecimal amount;
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
 
     public void setAuthorities(List<GrantedAuthority> authorities) {
         this.authorities = authorities;
