@@ -1,5 +1,6 @@
  package com.icinfo.starter.controller;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +14,15 @@ public class TestController {
 
     @GetMapping("/user")
     public String user(String phone) {
+        String a = new BCryptPasswordEncoder().encode("123456");
+        String b = new BCryptPasswordEncoder().encode("123456");
+        String c = new BCryptPasswordEncoder().encode("123456");
+        String d = new BCryptPasswordEncoder().encode("123456");
+        String e = new BCryptPasswordEncoder().encode("123456");
+        System.out.println(new BCryptPasswordEncoder().matches("123456", a));
+        System.out.println(new BCryptPasswordEncoder().matches(a, c));
+        System.out.println(new BCryptPasswordEncoder().matches(a, d));
+        System.out.println(new BCryptPasswordEncoder().matches(a, e));
         return "user";
     }
 
