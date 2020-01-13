@@ -22,6 +22,15 @@
           <label for="password" class="sr-only">Password</label>
           <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         </p>
+        <p>
+          <label for="captcha" class="sr-only">验证码</label>
+          <input type="text" id="captcha" name="captcha" class="form-control" style="width: 125px;display:inline-block;" placeholder="captcha" required>
+          <img alt="captcha" src="/captcha/img" height="50px" width="150px" style="margin-left: 20px;">
+        </p>
+        <p>
+          <label for="autoLogin" class="sr-only">自动登录</label>
+          <input type="checkbox" id="autoLogin" name="remember-me" value="1" class="form-control" style="width: 125px;display:inline-block;">记住我
+        </p>
 		<input name="_csrf" type="hidden" value="1a6385f8-ae56-4531-80b8-0139184ec998" />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>

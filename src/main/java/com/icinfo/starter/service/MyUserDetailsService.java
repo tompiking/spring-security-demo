@@ -7,7 +7,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.icinfo.starter.model.User;
@@ -19,7 +18,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // TODO 从数据库中获取用户数据
         User user = new User();
-        user.setPassword(new BCryptPasswordEncoder().encode("123456"));
+        user.setPassword("123456");
         user.setUsername("tom");
         List<GrantedAuthority> auth = new LinkedList<GrantedAuthority>();
         GrantedAuthority a = new GrantedAuthority() {
